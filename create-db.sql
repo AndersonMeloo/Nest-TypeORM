@@ -4,4 +4,4 @@ CREATE DATABASE nesttypeorm
     ENCODING = 'UTF8'
     CONNECTION LIMIT = -1;
 
-/c nesttypeorm
+-- /c nesttypeorm
