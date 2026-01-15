@@ -15,7 +15,13 @@ export class UsersController {
 
   @Post()
   async createUser(@Res() response: Response, @Body() userDTO: UsersDto) {
-    const userCreatead = await this.usersService.createUser(userDTO);
-    return response.status(201).json(userCreatead);
+    const userDomain = {
+      name: userDTO.name,
+      email: userDTO.email,
+      password: userDTO.password,
+      updatedAt: userDTO.updatedAt ? new Date(userDTO.updatedAt) : undefined,
+    };
+    const userCreated = await this.usersService.createUser(userDomain);
+    return response.status(201).json(userCreated);
   }
 }
